@@ -1,24 +1,28 @@
-import React,{useEffect,useState} from 'react'
-import axios from 'axios'
+import React from 'react'
+// import axios from 'axios'
 import {Link} from 'react-router-dom'
 import Pokeball from '../images/Pokebola.png'
+import {connect} from 'react-redux';
 
-const Home =()=>{
+const Home =(props)=>{
 
-    const [posts,setPosts] = useState([]);
+    //const [posts,setPosts] = useState([]);
+    // useEffect(()=>{
+    //     fetchDummyData();
+    // },[]);
 
-    useEffect(()=>{
-        fetchDummyData();
-    },[]);
+    // const fetchDummyData = ()=>{
+    //     axios.get('https://jsonplaceholder.typicode.com/posts')
+    //     .then(res=>{
+    //         console.log(res)
+    //         //to cut down the respones data array to pick the first 10 only use res.data.slice(0,10)
+    //         setPosts(res.data.slice(0,10))
+    //     })
+    // }
 
-    const fetchDummyData = ()=>{
-        axios.get('https://jsonplaceholder.typicode.com/posts')
-        .then(res=>{
-            console.log(res)
-            //to cut down the respones data array to pick the first 10 only use res.data.slice(0,10)
-            setPosts(res.data.slice(0,10))
-        })
-    }
+    const {posts} = props;
+    console.log(posts)
+    console.log(props)
     const postList = posts.length?(
         posts.map(post=>{
             return(
@@ -45,4 +49,10 @@ const Home =()=>{
         </div>
     )
 }
-export default Home;
+
+const mapStateToProps = (state)=>{
+    return{
+       posts: state.posts,
+    }
+}
+export default connect(mapStateToProps)(Home);
