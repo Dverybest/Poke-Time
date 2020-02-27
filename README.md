@@ -25,7 +25,9 @@ import {useEffect} from 'react';
 And use as below
 
 useEffect(()=>{
+
     //call the function or write the code you want to happen here
+    
 },[])
 
 
