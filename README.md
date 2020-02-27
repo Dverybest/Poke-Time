@@ -8,7 +8,8 @@ component because you only include stuffs you need unlike
 class component that includes both stuff you used and
 stuff you didn't use (because you inherited from React Component).
 
-To use state in functional component, 
+To use state in functional component,
+
 import {useState} from 'react';
 
 Useage example, to set a variable called data to state inside your functional component do
@@ -27,8 +28,4 @@ And use as below
 useEffect(()=>{
 
     //call the function or write the code you want to happen here
-    
 },[])
-
-
-
